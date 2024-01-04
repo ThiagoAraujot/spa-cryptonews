@@ -25,7 +25,6 @@ export const InputSearch = styled.div`
   width: 200px;
   display: flex;
   align-items: center;
-  margin-left: 1rem;
 
   i {
     position: absolute;
