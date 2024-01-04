@@ -1,19 +1,19 @@
 import logo from "../../images/Crypto-News-logo.png";
-import "./Navbar.css";
+import { ImgLogo, InputSearch, Nav, Button } from "./NavbarStyled";
 
 export function Navbar() {
   return (
     <>
-      <nav>
-        <div className="input-search-space">
-          <input type="text" placeholder="Pesquisar"/>
+      <Nav>
+        <InputSearch>
+          <input type="text" placeholder="Pesquisar" />
           <i className="bi bi-search"></i>
-        </div>
+        </InputSearch>
 
-        <img src={logo} alt="" />
+        <ImgLogo src={logo} alt="" />
 
-        <button>Login</button>
-      </nav>
+        <Button>Login</Button>
+      </Nav>
     </>
   );
 }
