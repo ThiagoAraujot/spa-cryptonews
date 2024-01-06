@@ -1,5 +1,5 @@
 import logo from "../../images/Crypto-News-logo.png";
-import { ImgLogo, InputSearch, Nav, Button } from "./NavbarStyled";
+import { InputSearch, Nav, ImgLogo, Button } from "./NavbarStyled";
 
 export function Navbar() {
   return (
