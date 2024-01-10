@@ -6,3 +6,8 @@ export function getAllNews() {
   const response = axios.get(`${baseURL}/news`); //async
   return response;
 }
+
+export function getTopNews() {
+  const response = axios.get(`${baseURL}/news/top`); 
+  return response;
+}
