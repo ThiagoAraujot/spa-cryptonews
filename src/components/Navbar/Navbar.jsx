@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import logo from "../../images/Crypto-News-logo.png";
 import { InputSearch, Nav, ImgLogo, Button } from "./NavbarStyled";
 
@@ -14,6 +15,7 @@ export function Navbar() {
 
         <Button>Login</Button>
       </Nav>
+      <Outlet />
     </>
   );
 }
