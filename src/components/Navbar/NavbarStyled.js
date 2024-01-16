@@ -41,10 +41,9 @@ export const InputSearch = styled.div`
     &:hover {
       background-color: #8d56fb;
       color: #ffff;
-      transition: .2s ease-in-out;
+      transition: 0.2s ease-in-out;
     }
   }
-
 
   input {
     outline: none;
@@ -80,4 +79,14 @@ export const Button = styled.button`
   &:hover {
     background-color: #6835cd;
   }
+`;
+
+export const ErrorSpan = styled.span`
+  background-color: #ffaeae;
+  color: #9e0000;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: bold;
 `;

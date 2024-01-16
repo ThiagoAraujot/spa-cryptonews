@@ -1,10 +1,28 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import logo from "../../images/Crypto-News-logo.png";
-import { InputSearch, Nav, ImgLogo, Button } from "./NavbarStyled";
+import { InputSearch, Nav, ImgLogo, Button, ErrorSpan } from "./NavbarStyled";
 import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const searchSchema = z.object({
+  title: z
+    .string()
+    .nonempty({ message: "A pesquisa não pode ser vazia!" })
+    .refine((value) => !/^\s*$/.test(value), {
+      message: "A pesquisa não pode ter apenas espaços!",
+    }),
+});
 
 export function Navbar() {
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(searchSchema),
+  });
   const navigate = useNavigate();
 
   function onSearch(data) {
@@ -30,6 +48,7 @@ export function Navbar() {
 
         <Button>Login</Button>
       </Nav>
+      {errors.title && <ErrorSpan>{errors.title.message}</ErrorSpan>}
       <Outlet />
     </>
   );
