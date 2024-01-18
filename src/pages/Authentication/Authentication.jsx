@@ -1,23 +1,25 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { InputSpace } from "../../components/Input/InputStyled";
 import { AuthContainer, Button, Section } from "./AuthenticationStyled";
-import { z } from "zod";
+import { ErrorSpan } from "../../components/Navbar/NavbarStyled";
+import { siginSchema } from "../../schemas/signinSchema";
+import { signupSchema } from "../../schemas/signupSchema";
+import { Input } from "../../components/Input/Input";
 
 export function Authentication() {
-  const signupSchema = z.object({});
-
   const {
     register: registerSignup,
     handleSubmit: handleSubmitSignup,
     formState: { errors: errorsSignup },
-  } = useForm();
+  } = useForm({ resolver: zodResolver(signupSchema) });
 
   const {
     register: registerSignin,
     handleSubmit: handleSubmitSignin,
     formState: { errors: errorsSignin },
-  } = useForm();
+  } = useForm({
+    resolver: zodResolver(siginSchema),
+  });
 
   function inHandleSubmit(data) {
     console.log(data);
@@ -32,45 +34,69 @@ export function Authentication() {
       <Section type="signin">
         <h2>Entrar</h2>
         <form onSubmit={handleSubmitSignin(inHandleSubmit)}>
-          <InputSpace
+          <Input
             type="email"
             placeholder="E-mail"
             name="email"
             register={registerSignin}
           />
-          <InputSpace
+          {errorsSignin.email && (
+            <ErrorSpan>{errorsSignin.email.message}</ErrorSpan>
+          )}
+          <Input
             type="password"
             placeholder="Senha"
             name="password"
             register={registerSignin}
           />
+          {errorsSignin.password && (
+            <ErrorSpan>{errorsSignin.password.message}</ErrorSpan>
+          )}
           <Button type="submit" name="signin">
             Entrar
           </Button>
         </form>
       </Section>
+
       <Section type="signup">
         <h2>Cadastrar</h2>
         <form onSubmit={handleSubmitSignup(upHandleSubmit)}>
-          <InputSpace
+          <Input
             type="text"
             placeholder="Nome"
             name="name"
             register={registerSignup}
           />
-          <InputSpace
+          {errorsSignup.name && (
+            <ErrorSpan>{errorsSignup.name.message}</ErrorSpan>
+          )}
+          <Input
             type="email"
             placeholder="E-mail"
             name="email"
             register={registerSignup}
           />
-          <InputSpace type="password" placeholder="Senha" name="password" />
-          <InputSpace
+          {errorsSignup.email && (
+            <ErrorSpan>{errorsSignup.email.message}</ErrorSpan>
+          )}
+          <Input
             type="password"
-            placeholder="Confirmar senha"
+            placeholder="Senha"
             name="password"
             register={registerSignup}
           />
+          {errorsSignup.password && (
+            <ErrorSpan>{errorsSignup.password.message}</ErrorSpan>
+          )}
+          <Input
+            type="password"
+            placeholder="Confirmar senha"
+            name="confirmPassword"
+            register={registerSignup}
+          />
+          {errorsSignup.confirmPassword && (
+            <ErrorSpan>{errorsSignup.confirmPassword.message}</ErrorSpan>
+          )}
           <Button type="submit" name="signup">
             Cadastrar
           </Button>
