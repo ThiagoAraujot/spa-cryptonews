@@ -5,6 +5,7 @@ import { ErrorSpan } from "../../components/Navbar/NavbarStyled";
 import { siginSchema } from "../../schemas/signinSchema";
 import { signupSchema } from "../../schemas/signupSchema";
 import { Input } from "../../components/Input/Input";
+import { signUp } from "../../services/userService";
 
 export function Authentication() {
   const {
@@ -21,12 +22,17 @@ export function Authentication() {
     resolver: zodResolver(siginSchema),
   });
 
-  function inHandleSubmit(data) {
+  async function inHandleSubmit(data) {
     console.log(data);
   }
 
-  function upHandleSubmit(data) {
-    console.log(data);
+  async function upHandleSubmit(data) {
+    try {
+      const response = await signUp(data);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
