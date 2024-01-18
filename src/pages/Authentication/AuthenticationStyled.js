@@ -47,16 +47,15 @@ export const Button = styled.button`
   background-color: ${(props) =>
     props.name === "signin" ? "#ffff" : "#8d56fb"};
   font-weight: 500;
-  letter-spacing: 0.1rem;
+  /*letter-spacing: 0.1rem;*/
   outline: none;
   cursor: pointer;
   transition: all 0.4s ease-in-out;
-  color: ${(props) => (props.name === "signin" ? "#000" : "#fff")};
+  color: ${(props) => (props.name === "signin" ? "grey" : "#fff")};
 
   &:hover {
     background-color: ${(props) =>
       props.name === "signin" ? "#fff" : "#8d56fb"};
-    /*color: ${(props) => (props.name === "signin" ? "#000" : "#fff")};*/
     transform: scale(0.98);
   }
 `;
