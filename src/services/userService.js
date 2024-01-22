@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const baseURL = "http://localhost:3000";
 
@@ -11,6 +12,20 @@ export function signUp(data) {
     background: "https://i.imgur.com/XbRg9D7.png",
   };
   const response = axios.post(`${baseURL}/user/create`, body);
+  return response;
+}
+
+export function signIn(data) {
+  const response = axios.post(`${baseURL}/auth/`, data);
+  return response;
+}
+
+export function userLogged() {
+  const response = axios.get(`${baseURL}/user/findById`, {
+    headers: {
+      Authorization: `Bearer ${Cookies.get("token")}`,
+    }
+  });
   return response;
 }
 

@@ -20,7 +20,6 @@ export default function Home() {
 
   useEffect(() => {
     findNews();
-    console.log(Cookies.get("token"));
   }, []);
 
   return (
