@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AuthContainer, Button, Section } from "./AuthenticationStyled";
-import { ErrorSpan } from "../../components/Navbar/NavbarStyled";
+import { AuthContainer, Button, Section } from "./AuthenticationStyled.jsx";
+import { ErrorSpan } from "../../components/Navbar/NavbarStyled.jsx";
 import { siginSchema } from "../../schemas/signinSchema";
 import { signupSchema } from "../../schemas/signupSchema";
 import { Input } from "../../components/Input/Input";

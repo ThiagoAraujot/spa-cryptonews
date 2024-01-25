@@ -7,7 +7,7 @@ import {
   Button,
   ErrorSpan,
   UserLoggedSpace,
-} from "./NavbarStyled";
+} from "./NavbarStyled.jsx";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { searchSchema } from "../../schemas/searchSchema";
@@ -71,7 +71,7 @@ export function Navbar() {
 
         {user ? (
           <UserLoggedSpace>
-            <Link to="/user">
+            <Link to="/user" style={{ textDecoration: "none" }}>
               <h2>{user.name}</h2>
             </Link>
             <i className="bi bi-box-arrow-right" onClick={signout}></i>

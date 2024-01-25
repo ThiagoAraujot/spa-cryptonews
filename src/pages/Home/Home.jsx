@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 
 import { Card } from "../../components/Card/Card";
-import { Navbar } from "../../components/Navbar/Navbar";
 import { getAllNews, getTopNews } from "../../services/newsService.js";
-import { HomeBody, HomeHeader } from "./HomeStyled.js";
-import Cookies from "js-cookie";
+import { HomeBody, HomeHeader } from "./HomeStyled.jsx";
 
 export default function Home() {
   const [news, setNews] = useState([]);

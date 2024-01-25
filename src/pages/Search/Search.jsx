@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { searchNews } from "../../services/newsService";
 import { Card } from "../../components/Card/Card.jsx";
-import { ContainerResults, SearchNews, TextResults } from "./SearchStyled.js";
+import { ContainerResults, SearchNews, TextResults } from "./SearchStyled.jsx";
 
 export function Search() {
   const { title } = useParams();

@@ -1,4 +1,4 @@
-import { InputSpace } from "./InputStyled";
+import { InputSpace } from "./InputStyled.jsx";
 
 export function Input({ type, placeholder, name, register }) {
   return (

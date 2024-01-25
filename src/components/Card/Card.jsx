@@ -1,5 +1,10 @@
 import { TextLimit } from "../TextLimit/TextLimit";
-import { CardBody, CardContainer, CardFooter, CardHeader } from "./CardStyled";
+import {
+  CardBody,
+  CardContainer,
+  CardFooter,
+  CardHeader,
+} from "./CardStyled.jsx";
 
 export function Card(props) {
   return (
