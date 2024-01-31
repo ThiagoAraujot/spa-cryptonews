@@ -15,6 +15,7 @@ export const CardBody = styled.article`
   display: flex;
   width: 100%;
   height: 100%;
+  color: #454444;
 
   div {
     display: flex;
