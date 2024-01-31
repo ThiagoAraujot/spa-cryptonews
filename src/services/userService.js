@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const baseURL = "http://localhost:3000";
+const baseURL = "https://api-cryptonews.onrender.com";
 
 export function signUp(data) {
   delete data.confirmPassword;
@@ -24,7 +24,7 @@ export function userLogged() {
   const response = axios.get(`${baseURL}/user/findById`, {
     headers: {
       Authorization: `Bearer ${Cookies.get("token")}`,
-    }
+    },
   });
   return response;
 }
