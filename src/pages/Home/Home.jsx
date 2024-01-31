@@ -2,14 +2,15 @@ import { useEffect, useState } from "react";
 
 import { Card } from "../../components/Card/Card";
 import { getAllNews, getTopNews } from "../../services/newsService.js";
-import { HomeBody, HomeHeader } from "./HomeStyled.jsx";
+import { Footer, HomeBody, HomeHeader } from "./HomeStyled.jsx";
 
 export default function Home() {
   const [news, setNews] = useState([]);
   const [topNew, setTopNew] = useState({});
+  const [currentPage, setCurrentPage] = useState(0);
 
   async function findNews() {
-    const newsResponse = await getAllNews();
+    const newsResponse = await getAllNews(currentPage);
     setNews(newsResponse.data.results);
 
     const topNewsResponse = await getTopNews();
@@ -18,7 +19,21 @@ export default function Home() {
 
   useEffect(() => {
     findNews();
-  }, []);
+
+    const intersectionObserver = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        setTimeout(() => {
+          setCurrentPage(
+            (currentPageInsideState) => currentPageInsideState + 5
+          );
+        }, 900);
+      }
+    });
+
+    intersectionObserver.observe(document.querySelector("#sentinela"));
+
+    return () => intersectionObserver.disconnect();
+  }, [currentPage]);
 
   return (
     <>
@@ -44,6 +59,7 @@ export default function Home() {
           />
         ))}
       </HomeBody>
+      <Footer id="sentinela"></Footer>
     </>
   );
 }

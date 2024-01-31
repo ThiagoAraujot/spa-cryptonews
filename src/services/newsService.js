@@ -1,10 +1,10 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const baseURL = "http://localhost:3000";
+const baseURL = "https://api-cryptonews.onrender.com";
 
-export function getAllNews() {
-  const response = axios.get(`${baseURL}/news`); //async
+export function getAllNews(limit) {
+  const response = axios.get(`${baseURL}/news?offset=0&limit=${limit}`);
   return response;
 }
 
