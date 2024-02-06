@@ -1,2 +1,2 @@
-# Front-end Crypto News
+# Front-end Crypto News in React.js
 
